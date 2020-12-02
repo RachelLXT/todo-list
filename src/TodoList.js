@@ -5,10 +5,7 @@ class TodoList extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			list: [
-				'开会',
-				'提交材料'
-			],
+			list: [],
 			inputValue: ''
 		};
 	}
@@ -32,7 +29,6 @@ class TodoList extends React.Component {
 	}
 
 	handleInputValueChange(e) {
-		console.log(e.target.value);
 		this.setState({
 			inputValue: e.target.value
 		});
