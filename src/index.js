@@ -3,10 +3,11 @@ import React from 'react';
 // 引入ReactDOM库将组件挂载到index.html的root标签下
 import ReactDOM from 'react-dom';
 import TodoList from './TodoList';
+import style from './style.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <TodoList />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<TodoList />
+	</React.StrictMode>,
+	document.getElementById('root')
 );
