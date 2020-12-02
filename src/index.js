@@ -2,11 +2,11 @@
 import React from 'react';
 // 引入ReactDOM库将组件挂载到index.html的root标签下
 import ReactDOM from 'react-dom';
-import App from './App';
+import TodoList from './TodoList';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <TodoList />
   </React.StrictMode>,
   document.getElementById('root')
 );
