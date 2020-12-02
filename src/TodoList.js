@@ -21,11 +21,26 @@ class TodoList extends React.Component {
 				</div>
 				<ul>
 					{
-						this.state.list.map((item, index) => <li key={index}>{item}</li>)
+						this.state.list.map((item, index) =>
+							<li
+								key={index}
+								onClick={this.handleItemClick.bind(this, index)}
+							>{item}</li>)
 					}
 				</ul>
 			</div>
 		);
+	}
+
+	handleItemClick(index) {
+		// [...xx] 复制副本
+		const list = [...this.state.list];
+		list.splice(index, 1);
+		this.setState({
+			// list: list -> es6键值一样可以简化
+			list
+		});
+
 	}
 
 	handleInputValueChange(e) {
