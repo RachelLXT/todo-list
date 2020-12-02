@@ -21,7 +21,7 @@ class TodoList extends Component {
 			<Fragment>
 				<div>
 					{/*双向绑定*/}
-					<input value={this.state.inputValue} onChange={this.handleInputValueChange} />
+					<input className="input" value={this.state.inputValue} onChange={this.handleInputValueChange} />
 					{/*bind(this)是将click函数绑定组件，使得在函数内部的this指向组件，就可以根据this获取state属性*/}
 					<button className="commit-btn" onClick={this.handleBtnClick}>add</button>
 				</div>
