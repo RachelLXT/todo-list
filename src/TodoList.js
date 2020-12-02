@@ -25,19 +25,19 @@ class TodoList extends React.Component {
 					{/*bind(this)是将click函数绑定组件，使得在函数内部的this指向组件，就可以根据this获取state属性*/}
 					<button onClick={this.handleBtnClick}>add</button>
 				</div>
-				<ul>
-					{
-						/*父组件通过属性的形式向自组件传递参数*/
-						this.state.list.map((item, index) =>
-							<TodoItem
-								key={index} content={item} index={index}
-								handleItemClick={this.deleteItem}
-							/>)
-					}
-				</ul>
+				<ul>{this.getTodoItem()}</ul>
 			</div>
 		);
 	}
+
+	getTodoItem = () => {
+		/*父组件通过属性的形式向自组件传递参数*/
+		return this.state.list.map((item, index) =>
+			<TodoItem
+				key={index} content={item} index={index}
+				handleItemClick={this.deleteItem}
+			/>);
+	};
 
 	deleteItem = (index) => {
 		// [...xx] 复制副本
