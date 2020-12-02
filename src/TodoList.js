@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoItem from './TodoItem';
 
 class TodoList extends React.Component {
 
@@ -8,6 +9,11 @@ class TodoList extends React.Component {
 			list: [],
 			inputValue: ''
 		};
+
+		//优化
+		this.handleInputValueChange = this.handleInputValueChange.bind(this);
+		this.handleBtnClick = this.handleBtnClick.bind(this);
+		this.deleteItem = this.deleteItem.bind(this);
 	}
 
 	render() {
@@ -15,24 +21,25 @@ class TodoList extends React.Component {
 			<div>
 				<div>
 					{/*双向绑定*/}
-					<input value={this.state.inputValue} onChange={this.handleInputValueChange.bind(this)} />
+					<input value={this.state.inputValue} onChange={this.handleInputValueChange} />
 					{/*bind(this)是将click函数绑定组件，使得在函数内部的this指向组件，就可以根据this获取state属性*/}
-					<button onClick={this.handleBtnClick.bind(this)}>add</button>
+					<button onClick={this.handleBtnClick}>add</button>
 				</div>
 				<ul>
 					{
+						/*父组件通过属性的形式向自组件传递参数*/
 						this.state.list.map((item, index) =>
-							<li
-								key={index}
-								onClick={this.handleItemClick.bind(this, index)}
-							>{item}</li>)
+							<TodoItem
+								key={index} content={item} index={index}
+								handleItemClick={this.deleteItem}
+							/>)
 					}
 				</ul>
 			</div>
 		);
 	}
 
-	handleItemClick(index) {
+	deleteItem = (index) => {
 		// [...xx] 复制副本
 		const list = [...this.state.list];
 		list.splice(index, 1);
@@ -40,8 +47,7 @@ class TodoList extends React.Component {
 			// list: list -> es6键值一样可以简化
 			list
 		});
-
-	}
+	};
 
 	handleInputValueChange(e) {
 		this.setState({
@@ -49,12 +55,12 @@ class TodoList extends React.Component {
 		});
 	}
 
-	handleBtnClick() {
+	handleBtnClick = () => {
 		this.setState({
 			list: [...this.state.list, this.state.inputValue],
 			inputValue: ''
 		});
-	}
+	};
 
 }
 
