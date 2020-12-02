@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import TodoItem from './TodoItem';
 
-class TodoList extends React.Component {
+class TodoList extends Component {
 
 	constructor(props) {
 		super(props);
@@ -18,7 +18,7 @@ class TodoList extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<Fragment>
 				<div>
 					{/*双向绑定*/}
 					<input value={this.state.inputValue} onChange={this.handleInputValueChange} />
@@ -26,7 +26,7 @@ class TodoList extends React.Component {
 					<button onClick={this.handleBtnClick}>add</button>
 				</div>
 				<ul>{this.getTodoItem()}</ul>
-			</div>
+			</Fragment>
 		);
 	}
 
