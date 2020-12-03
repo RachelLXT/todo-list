@@ -12,7 +12,7 @@ export default class TodoItem extends React.Component {
 		return (
 			/*子组件通过props接收父组件的参数*/
 			/*子组件通过调用父组件传过来的方法进行通信*/
-			<div onClick={this.handleItemClick}>{content}</div>
+			<div className="iconfont icon-daiban" onClick={this.handleItemClick}>{content}</div>
 		);
 	}
 

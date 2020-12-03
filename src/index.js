@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from './TodoList';
 import style from './style.css';
+import iconfont from './iconfont/iconfont.css';
 
 ReactDOM.render(
 	<React.StrictMode>
